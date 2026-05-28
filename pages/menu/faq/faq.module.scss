@@ -1,0 +1,219 @@
+$primary: #ef6079;
+$primary-dark: #d94462;
+$primary-soft: #fdecef;
+$text-primary: #1a1a1a;
+$text-secondary: #4b5563;
+$text-muted: #8a93a0;
+$line: #ececef;
+$bg-page: #f5f6f8;
+$bg-card: #ffffff;
+
+.page {
+  background: $bg-page;
+  color: $text-primary;
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Malgun Gothic', sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* caring.co.kr 모바일 캔버스(375px) 기준 */
+.shell {
+  max-width: 375px;
+  margin: 0 auto;
+  background: $bg-card;
+  min-height: 100vh;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.appBar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 24px 1fr 24px;
+  align-items: center;
+  height: 48px;
+  padding: 0 20px;
+  background: #fff;
+  border-bottom: 1px solid $line;
+}
+
+.appBarBack {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 24px;
+  height: 48px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: $text-primary;
+  text-decoration: none;
+
+  svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.appBarTitle {
+  margin: 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: $text-primary;
+}
+
+.appBarSpacer {
+  width: 24px;
+  height: 24px;
+}
+
+.hero {
+  padding: 24px 20px 20px;
+  background: #fff;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: $text-muted;
+  margin-bottom: 14px;
+
+  a {
+    color: $text-muted;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  [aria-current='page'] {
+    color: $text-primary;
+    font-weight: 500;
+  }
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: $text-primary;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.title {
+  margin: 0 0 10px;
+  font-family: inherit;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: $text-primary;
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: $text-secondary;
+  word-break: keep-all;
+}
+
+.content {
+  padding: 0 0 96px;
+  background: #fff;
+}
+
+.panel {
+  padding: 24px 0 0;
+  border-top: 1px solid $line;
+}
+
+.panelHeader {
+  padding: 8px 20px 16px;
+}
+
+.panelTitle {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: $text-primary;
+}
+
+.panelDesc {
+  margin: 0;
+  font-size: 13px;
+  color: $text-muted;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.floatingBar {
+  position: fixed;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 375px;
+  padding: 0 20px;
+  display: flex;
+  gap: 8px;
+  z-index: 20;
+  pointer-events: none; /* 컨테이너는 클릭 통과, 버튼만 활성 */
+}
+
+.floatBtn {
+  pointer-events: auto;
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 48px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(0, 0, 0, 0.18);
+    outline-offset: 2px;
+  }
+}
+
+.kakao {
+  background: #fee500;
+  color: #3a1d1d;
+}
+
+.tel {
+  background: $primary;
+  color: #fff;
+}

@@ -1,0 +1,42 @@
+$primary: #ef6079;
+$primary-dark: #d94462;
+$text-muted: #6b7280;
+$line: #e5e7eb;
+
+.tabsWrap {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 16px 20px 20px;
+  background: #fff;
+}
+
+.tab {
+  flex-shrink: 0;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #f1f2f4;
+  color: #4b5563;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+
+  &:hover {
+    background: #e7e8eb;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+
+  &.active {
+    background: $primary;
+    color: #fff;
+    font-weight: 700;
+  }
+}

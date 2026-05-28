@@ -1,0 +1,129 @@
+$primary: #ef6079;
+$primary-soft: #fdecef;
+$text-primary: #1a1a1a;
+$text-secondary: #4b5563;
+$line: #ececef;
+$bg-soft: #f7f8fa;
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid $line;
+}
+
+.item {
+  border-bottom: 1px solid $line;
+  background: #fff;
+  transition: background-color 0.2s ease;
+
+  &.open {
+    background: $bg-soft;
+  }
+}
+
+.questionHeading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.questionButton {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 20px;
+  background: transparent;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  color: $text-primary;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: -2px;
+  }
+}
+
+.qMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: $primary;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 1px;
+}
+
+.questionText {
+  flex: 1;
+  word-break: keep-all;
+  padding-top: 3px;
+}
+
+.chevron {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #9ca3af;
+  border-bottom: 2px solid #9ca3af;
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+  margin-top: 8px;
+  margin-right: 2px;
+
+  .open & {
+    transform: rotate(-135deg);
+    margin-top: 12px;
+    border-color: $primary;
+  }
+}
+
+.answerPanel {
+  overflow: hidden;
+}
+
+.answerInner {
+  display: flex;
+  gap: 12px;
+  padding: 4px 20px 22px 20px;
+  color: $text-secondary;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.aMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: $primary-soft;
+  color: $primary;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 1px;
+}
+
+.answerText {
+  flex: 1;
+  margin: 2px 0 0;
+  white-space: pre-line;
+  word-break: keep-all;
+}

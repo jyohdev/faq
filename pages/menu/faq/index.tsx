@@ -8,9 +8,13 @@ import styles from './faq.module.scss';
 
 const SITE_URL = 'https://caring.co.kr';
 const PAGE_URL = `${SITE_URL}/menu/faq`;
-const PAGE_TITLE = '자주 묻는 질문(FAQ) | 케어링';
+const PAGE_TITLE = '자주 묻는 질문 FAQ | 보건복지부 장관상 수상 기업 케어링';
 const PAGE_DESCRIPTION =
-  '장기요양등급, 방문요양, 가족요양, 주간보호센터에 대한 자주 묻는 질문을 모았습니다. 케어링 어르신 돌봄 서비스 안내, 신청 절차, 비용 지원, 이용 방법을 한눈에 확인하세요.';
+  '케어링이 가장 많이 받는 질문을 모았습니다. 장기요양등급 신청 방법과 등급별 혜택, 방문요양·가족요양·주간보호센터·방문목욕·차량목욕·방문간호 이용 절차와 비용, 복지용구 지원, 요양보호사 급여까지 어르신 돌봄과 케어링 입사에 대한 모든 궁금증을 한눈에 확인하세요. 보건복지부 장관상 수상 기업 케어링이 친절하게 안내드립니다.';
+const PAGE_KEYWORDS =
+  '케어링, 케어링FAQ, 자주묻는질문, 노인돌봄서비스, 어르신돌봄, 장기요양등급, 장기요양등급신청, 장기요양등급혜택, 노인장기요양보험, 노인장기요양등급, 요양등급, 요양등급비용, 장기요양보험, 장기요양기관, 방문요양, 방문요양비용, 방문요양서비스, 가족요양, 가족요양급여, 가족요양조건, 가족요양90분, 가족요양60분, 주간보호센터, 데이케어센터, 주간보호프로그램, 방문목욕, 방문목욕급여, 차량목욕, 복지용구, 복지용구지원, 복지용구대여, 방문간호, 방문간호지시서, 요양보호사, 요양보호사자격증, 요양보호사급여, 요양보호사구직, 요양보호사일자리, 케어링요양보호사, 케어링구인';
+const OG_IMAGE =
+  'https://caring-static-public.s3.ap-northeast-2.amazonaws.com/images/og_2025homepage.png';
 
 export default function FaqPage() {
   const [activeId, setActiveId] = useState<string>(FAQ_CATEGORIES[0].id);
@@ -51,15 +55,82 @@ export default function FaqPage() {
     [],
   );
 
+  const organizationSchema = useMemo(
+    () => ({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: 'Caring',
+      legalName: '케어링(주)',
+      url: SITE_URL,
+      logo: `${SITE_URL}/images/caring-logo.svg`,
+      description:
+        '대한민국 요양 인프라를 만들어 갑니다. 보건복지부 장관상 수상 기업 케어링.',
+      award: '보건복지부 장관상 수상',
+      email: 'info@caring.co.kr',
+      telephone: '1522-6585',
+      sameAs: [
+        'https://m.blog.naver.com/caring_official',
+        'https://www.youtube.com/channel/UCRp8J0qjfikPxdrDRJTt3QQ',
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '서초대로 396, 4층 (서초동, 강남빌딩)',
+        addressLocality: '서울특별시',
+        addressRegion: '서초구',
+        addressCountry: 'KR',
+      },
+      contactPoint: [
+        {
+          '@type': 'ContactPoint',
+          telephone: '1522-6585',
+          contactType: 'customer service',
+          areaServed: 'KR',
+          availableLanguage: ['Korean'],
+        },
+      ],
+    }),
+    [],
+  );
+
+  const webPageSchema = useMemo(
+    () => ({
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      '@id': PAGE_URL,
+      url: PAGE_URL,
+      name: PAGE_TITLE,
+      description: PAGE_DESCRIPTION,
+      inLanguage: 'ko-KR',
+      isPartOf: { '@id': `${SITE_URL}/#website`, name: '케어링', url: SITE_URL },
+      about: [
+        { '@type': 'Thing', name: '장기요양등급' },
+        { '@type': 'Thing', name: '노인장기요양보험' },
+        { '@type': 'Thing', name: '방문요양' },
+        { '@type': 'Thing', name: '가족요양' },
+        { '@type': 'Thing', name: '주간보호센터' },
+        { '@type': 'Thing', name: '방문목욕' },
+        { '@type': 'Thing', name: '차량목욕' },
+        { '@type': 'Thing', name: '복지용구' },
+        { '@type': 'Thing', name: '방문간호' },
+        { '@type': 'Thing', name: '요양보호사 급여' },
+      ],
+      publisher: { '@id': `${SITE_URL}/#organization` },
+      breadcrumb: { '@id': `${PAGE_URL}#breadcrumb` },
+      mainEntity: { '@id': `${PAGE_URL}#faq` },
+    }),
+    [],
+  );
+
   return (
     <>
       <Head>
         <title>{PAGE_TITLE}</title>
+        <meta name="robots" content="index,follow" />
         <meta name="description" content={PAGE_DESCRIPTION} />
-        <meta
-          name="keywords"
-          content="케어링 FAQ, 장기요양등급, 방문요양, 가족요양, 주간보호센터, 방문목욕, 차량목욕, 복지용구, 방문간호, 노인장기요양보험, 요양보호사, 어르신 돌봄"
-        />
+        <meta name="keywords" content={PAGE_KEYWORDS} />
+        <meta name="author" content="케어링" />
+        <meta name="publisher" content="케어링(주)" />
         <link rel="canonical" href={PAGE_URL} />
 
         <link rel="icon" href="/favicon.jpg" />
@@ -74,10 +145,15 @@ export default function FaqPage() {
         <meta property="og:description" content={PAGE_DESCRIPTION} />
         <meta property="og:url" content={PAGE_URL} />
         <meta property="og:site_name" content="케어링" />
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="ko_KR" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={PAGE_TITLE} />
         <meta name="twitter:description" content={PAGE_DESCRIPTION} />
+        <meta name="twitter:image" content={OG_IMAGE} />
 
         <script
           type="application/ld+json"
@@ -87,12 +163,24 @@ export default function FaqPage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+        />
       </Head>
 
       <main className={styles.page}>
         <div className={styles.shell}>
           <header className={styles.appBar}>
-            <Link href="/menu" className={styles.appBarBack} aria-label="뒤로가기">
+            <a
+              href="https://caring.co.kr/menu/"
+              className={styles.appBarBack}
+              aria-label="뒤로가기"
+            >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <path
                   d="M15 6l-6 6 6 6"
@@ -102,7 +190,7 @@ export default function FaqPage() {
                   strokeLinejoin="round"
                 />
               </svg>
-            </Link>
+            </a>
             <h2 className={styles.appBarTitle}>FAQ</h2>
             <span className={styles.appBarSpacer} aria-hidden="true" />
           </header>
@@ -137,6 +225,21 @@ export default function FaqPage() {
               </header>
               <FAQAccordion items={activeCategory.items} idPrefix={activeCategory.id} />
             </div>
+
+            {activeCategory.id === 'caregiver-salary' && (
+              <a
+                href="https://work.caring.co.kr/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.jobCta}
+              >
+                <div className={styles.jobCtaText}>
+                  <span className={styles.jobCtaLabel}>요양보호사 구직신청</span>
+                  <span className={styles.jobCtaDesc}>내 근처 어르신도 케어할래요</span>
+                </div>
+                <span className={styles.jobCtaArrow} aria-hidden="true">›</span>
+              </a>
+            )}
 
           </section>
 

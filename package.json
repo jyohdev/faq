@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "vercel --prod --yes",
+    "deploy:watch": "node scripts/auto-deploy.js"
   },
   "dependencies": {
     "next": "13.1.6",

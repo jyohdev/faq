@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default function FAQAccordion({ items, idPrefix }: Props) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const uid = useId();
 
   return (

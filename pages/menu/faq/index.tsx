@@ -8,7 +8,7 @@ import styles from './faq.module.scss';
 
 const SITE_URL = 'https://caring.co.kr';
 const PAGE_URL = `${SITE_URL}/menu/faq`;
-const PAGE_TITLE = '자주 묻는 질문 FAQ | 보건복지부 장관상 수상 기업 케어링';
+const PAGE_TITLE = 'FAQ | 자주 묻는 질문 | 보건복지부 장관상 수상 기업 케어링';
 const PAGE_DESCRIPTION =
   '케어링이 가장 많이 받는 질문을 모았습니다. 장기요양등급 신청 방법과 등급별 혜택, 방문요양·가족요양·주간보호센터·방문목욕·차량목욕·방문간호 이용 절차와 비용, 복지용구 지원, 요양보호사 급여까지 어르신 돌봄과 케어링 입사에 대한 모든 궁금증을 한눈에 확인하세요. 보건복지부 장관상 수상 기업 케어링이 친절하게 안내드립니다.';
 const PAGE_KEYWORDS =
@@ -191,7 +191,7 @@ export default function FaqPage() {
                 />
               </svg>
             </a>
-            <h2 className={styles.appBarTitle}>FAQ</h2>
+            <h2 className={styles.appBarTitle}>FAQ | 자주 묻는 질문</h2>
             <span className={styles.appBarSpacer} aria-hidden="true" />
           </header>
 
@@ -199,8 +199,7 @@ export default function FaqPage() {
             <p className={styles.eyebrow}>자주묻는질문</p>
             <h1 className={styles.title}>FAQ</h1>
             <p className={styles.subtitle}>
-              어르신 돌봄에 대한 궁금증,<br />
-              케어링이 가장 많이 받은 질문으로 모았습니다.
+              어르신 돌봄, 가장 많이 받는 질문을 모았습니다.
             </p>
           </section>
 

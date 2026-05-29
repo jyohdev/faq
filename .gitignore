@@ -37,3 +37,6 @@ next-env.d.ts
 # editor
 .vscode/
 .idea/
+
+# 생성된 시트 / 임시 파일
+/sheets/
